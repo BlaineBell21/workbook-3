@@ -12,10 +12,10 @@ public class EmployeeData {
         this.hoursWorked = _hoursWorked;
         this.payRate = _payRate;
     }
-    public String displayEmployeeDate() {
+    public void displayEmployeeDate() {
         String employeeData;
         employeeData = this.employeeId + "|" + this.name + "|" + this.hoursWorked + "|" + this.payRate;
-        return employeeData;
+        System.out.println(employeeData);
     }
 
     public int getEmployeeId() {
