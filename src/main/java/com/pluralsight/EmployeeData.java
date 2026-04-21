@@ -6,6 +6,7 @@ public class EmployeeData {
     private double hoursWorked;
     private double payRate;
 
+
     public EmployeeData(int _employeeId, String _name, double _hoursWorked, double _payRate) {
         this.employeeId = _employeeId;
         this.name = _name;

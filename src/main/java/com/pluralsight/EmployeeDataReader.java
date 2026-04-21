@@ -4,7 +4,7 @@ import java.io.*;
 
 public class EmployeeDataReader {
 
-    public static void fileReaderAndBuffer(String file){
+    public static EmployeeData fileReaderAndBuffer(String file){
         try{
 
             FileReader fileReader = new FileReader(file);//scans the csv file
@@ -23,13 +23,15 @@ public class EmployeeDataReader {
                 double payRate = Double.parseDouble(stringCleaner(tokens[3]));
 
                 EmployeeData employee = new EmployeeData(employeeId, name, hoursWorked, payRate);//calls constructor to display employee data formatted
-               employee.displayEmployeeDate();
+                System.out.println(employee);
+                return employee;
             }
             buffReader.close();
 
         } catch (Exception e){
             e.printStackTrace();
         }
+        return null;
     }
     public static String fileToProcess(){
         System.out.println("Enter in the name of the file you'd like to process: ");
