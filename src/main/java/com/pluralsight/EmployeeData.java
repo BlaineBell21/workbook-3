@@ -16,7 +16,7 @@ public class EmployeeData {
     public void displayEmployeeDate() {
         String employeeData;
         double employeeGrossIncome = payRate * hoursWorked;
-        employeeData = "For employee with " + this.employeeId+" ID, their gross income is " + employeeGrossIncome;
+        employeeData = this.employeeId + "|" + this.name + "|" +employeeGrossIncome;
         System.out.println(employeeData);
     }
 
