@@ -12,9 +12,11 @@ public class EmployeeData {
         this.hoursWorked = _hoursWorked;
         this.payRate = _payRate;
     }
+
     public void displayEmployeeDate() {
         String employeeData;
-        employeeData = this.employeeId + "|" + this.name + "|" + this.hoursWorked + "|" + this.payRate;
+        double employeeGrossIncome = payRate * hoursWorked;
+        employeeData = "For employee with " + this.employeeId+" ID, their gross income is " + employeeGrossIncome;
         System.out.println(employeeData);
     }
 
