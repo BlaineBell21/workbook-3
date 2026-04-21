@@ -1,23 +1,31 @@
 package com.pluralsight;
 import java.io.*;
-import java.util.Scanner;
 
 
 public class PayrollCalculator {
     public static void main(String[] args){
 
         try{
-            FileReader fileReader = new FileReader("EmployeeData.csv");
+            FileReader fileReader = new FileReader("src/EmployeeData.csv");
             BufferedReader buffReader = new BufferedReader(fileReader);
             String input;
 
-            String delimiter = "";
+
 
 
             while ((input = buffReader.readLine()) != null){
-                String[] tokens = delimiter.split("\\|");
+                String[] tokens = input.split("\\|");
+
+                int employeeId = Integer.parseInt(tokens[0]);
+                String name = tokens[1];
+                double hoursWorked = Double.parseDouble(tokens[2]);
+                double payRate = Double.parseDouble(tokens[3]);
+
+                EmployeeData employee = new EmployeeData(employeeId, name, hoursWorked, payRate);
+                employee.displayEmployeeDate();
 
             }
+            buffReader.close();
 
 
         } catch (Exception e){
