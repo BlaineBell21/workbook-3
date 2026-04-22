@@ -14,15 +14,22 @@ CHALLENGE
  */
 
 
-import java.time.LocalDateTime;
 
+
+import java.time.ZonedDateTime;
 import java.time.format.*;
 
 public class FormatDates {
     public static void main(String[] args){
-        LocalDateTime today = LocalDateTime.now();
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("EEEE dd, yyyy");
-        String formattedDate = today.format(fmt);
-        System.out.println("Today is: " + formattedDate);
+        ZonedDateTime time = ZonedDateTime.now();
+        ZonedDateTime today = ZonedDateTime.now();
+
+        DateTimeFormatter fmtOfDate = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+        DateTimeFormatter fmtOfTime = DateTimeFormatter.ofPattern("hh:mm");
+
+        String formattedDate = today.format(fmtOfDate);
+        String formattedTime = today.format(fmtOfTime);
+
+        System.out.println(formattedTime + " on "+ formattedDate);
     }
 }
