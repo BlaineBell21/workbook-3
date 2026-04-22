@@ -21,9 +21,8 @@ import java.time.format.*;
 public class FormatDates {
     public static void main(String[] args){
         LocalDateTime today = LocalDateTime.now();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(" EEEE e, yyyy ");
-        String formattedDate = today.format(formatter);
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = today.format(fmt);
         System.out.println("Today is: " + formattedDate);
     }
 }
