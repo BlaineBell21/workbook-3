@@ -8,12 +8,5 @@ public class PayrollCalculator {
         String file = EmployeeDataReader.fileToProcess();
         EmployeeDataReader.fileReaderAndBuffer(file);
 
-
-
     }
-
-
-
-
-
 }

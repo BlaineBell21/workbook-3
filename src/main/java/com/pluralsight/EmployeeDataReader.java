@@ -9,6 +9,8 @@ public class EmployeeDataReader {
 
             FileReader fileReader = new FileReader(file);//scans the csv file
             BufferedReader buffReader = new BufferedReader(fileReader);//goes through each line of csv file
+            FileWriter fileName = FileExporter.fileToWriteTo();
+            BufferedWriter writer = new BufferedWriter(fileName);
             String input;
 
             while ((input = buffReader.readLine()) != null){
@@ -23,9 +25,19 @@ public class EmployeeDataReader {
                 double payRate = Double.parseDouble(stringCleaner(tokens[3]));
 
                 EmployeeData employee = new EmployeeData(employeeId, name, hoursWorked, payRate);//calls constructor to display employee data formatted
-                System.out.println(employee);
-                return employee;
+                payRate = employee.getPayRate() * employee.getHoursWorked();
+                System.out.println("Writing: " + employee.getName());
+
+                if(file.endsWith(".csv")){
+                    writer.write(employee.getEmployeeId() + "|" + employee.getName() + "|" + payRate);
+                } else {
+                    writer.write("{ "+"\"id\": " + employee.getEmployeeId()+ ", "+"\"name\" : " + "\""+employee.getName()+"\","+
+                                      "\"grossPay\" : " +  payRate+
+                            " }");
+                }
+                writer.newLine();
             }
+            writer.close();
             buffReader.close();
 
         } catch (Exception e){

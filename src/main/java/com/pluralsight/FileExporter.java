@@ -4,20 +4,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileExporter {
-    public static void exportToFile(EmployeeData employee) throws IOException {
 
-
-        FileWriter write = new FileWriter(fileToWriteTo());
-        double grossIncome = employee.getHoursWorked() * employee.getPayRate();
-        write.write(employee.getEmployeeId() + "|" + employee.getName() + "|" + grossIncome);
-
-        write.close();
-    }
-
-    public static String fileToWriteTo(){
+    public static FileWriter fileToWriteTo() throws IOException {
         System.out.println("Now enter in the name of the file you'd like to write to: ");
-        return UserInput.userStringInput();
-    }
+        String nameOfNewFile = UserInput.userStringInput();
+        FileWriter newFile = new FileWriter(nameOfNewFile);
 
+        return newFile;
+    }
 
 }

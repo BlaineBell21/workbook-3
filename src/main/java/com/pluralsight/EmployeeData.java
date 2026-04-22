@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.io.IOException;
+
 public class EmployeeData {
     private int employeeId;
     private String name;
@@ -14,11 +16,11 @@ public class EmployeeData {
         this.payRate = _payRate;
     }
 
-    public void displayEmployeeDate() {
+    public void displayEmployeeData() throws IOException {
         String employeeData;
         double employeeGrossIncome = payRate * hoursWorked;
         employeeData = this.employeeId + "|" + this.name + "|" +employeeGrossIncome;
-        System.out.println(employeeData);
+
     }
 
     public int getEmployeeId() {
